@@ -42,7 +42,7 @@ class TypesController extends Controller
         $exist = Type::where('title', $request->title)->first();
 
         if ($exist) {
-            return redirect()->route('admin.technologies.index')->with('error', 'Il linguaggio è già stato inserito');
+            return redirect()->route('admin.types.index')->with('error', 'Il linguaggio è già stato inserito');
         } else {
             $new_type = new type();
             $new_type->title = $request->title;

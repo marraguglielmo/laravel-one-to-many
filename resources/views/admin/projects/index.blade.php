@@ -65,7 +65,7 @@
                                 <input type="text" value="{{ $project->title }}" name="title">
                             </form>
                         </td>
-                        <td>{{ $project->type->title }}</td>
+                        <td>{{ $project->type ? $project->type->title : 'Nessun tipo' }}</td>
                         <td>{{ Help::formatDate($project->update_at) }}</td>
                         <td>{{ $project->languages }}</td>
                         <td><a target="_blank" href="{{ $project->github_url }}">{{ $project->github_url }}</a></td>
