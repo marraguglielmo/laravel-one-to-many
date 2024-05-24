@@ -1,0 +1,80 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: #001A23;
+    height: 65px;
+}
+
+.admin-dashboard{
+    aside{
+        background-color: #001A23;
+        display: flex;
+        justify-content: center;
+        width: 90px;
+        min-width: 90px;
+        height: calc(100vh - 65px);
+        border-top-right-radius: 8%;
+        border-bottom-right-radius: 8%;
+        box-shadow: 15px 10px 31px -11px rgba(66, 68, 90, 1);
+        overflow: hidden;
+        transition: width .3s ease-out;
+        ul{
+            padding: 0;
+            list-style: none;
+            li{
+                &:hover{
+                    background-color: #064053;
+                    transition: background-color .3s;
+                }
+                i{
+                    font-size: 1.3rem;
+                    margin-right: 8px;
+                    padding: 5px;
+                }
+                a{
+                    display: block;
+                    color: white;
+                    text-decoration: none;
+                    padding: 20px 30px;
+                    span{
+                        display: none;
+                        white-space: nowrap;
+                    }
+                }
+            }
+        }
+        &:hover{
+            transition: width .3s ease-out;
+            width: 200px;
+            ul{
+                li{
+                    a{
+                        span{
+                            display: inline-block;
+                            white-space: nowrap;
+                        }
+                    }
+                }
+            }
+        }
+        &:not(:hover){
+            transition: width .3s ease-out;
+        }
+    }
+    .main-dash{
+        width: calc(100vw - 200px);
+        height: calc(100vh - 65px);
+        padding: 15px 20px;
+    }
+
+    .crud-table{
+        input{
+            border: none;
+            outline: none;
+        }
+    }
+}
