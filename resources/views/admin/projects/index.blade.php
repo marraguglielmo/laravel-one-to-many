@@ -49,6 +49,7 @@
                     <th scope="col">Tipo</th>
                     <th scope="col">Data</th>
                     <th scope="col">Linguaggi</th>
+                    <th scope="col">Github</th>
                     <th scope="col">Azioni</th>
                 </tr>
             </thead>
@@ -67,6 +68,7 @@
                         <td>{{ $project->type->title }}</td>
                         <td>{{ Help::formatDate($project->update_at) }}</td>
                         <td>{{ $project->languages }}</td>
+                        <td><a target="_blank" href="{{ $project->github_url }}">{{ $project->github_url }}</a></td>
                         <td class="d-flex">
                             <button type="button" onclick="submitForm({{ $project->id }})"
                                 class="btn btn-warning me-2"><i class="fa-solid fa-pencil"></i></button>
