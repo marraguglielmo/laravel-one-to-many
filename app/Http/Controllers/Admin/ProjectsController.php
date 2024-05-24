@@ -35,14 +35,14 @@ class ProjectsController extends Controller
         $exist = Project::where('title', $request->title)->first();
 
         if ($exist) {
-            return redirect()->route('admin.projects.index')->with('error', 'Il linguaggio è già stato inserito');
+            return redirect()->route('admin.projects.index')->with('error', 'Il progetto è già stato inserito');
         } else {
             $new_project = new Project();
             $new_project->title = $request->title;
             $new_project->languages = $request->languages;
             $new_project->slug = Help::generateSlug($new_project->title, Project::class);
             $new_project->save();
-            return redirect()->route('admin.projects.index')->with('success', 'Il linguaggio è stato inserito correttamente');
+            return redirect()->route('admin.projects.index')->with('success', 'Il progetto è stato inserito correttamente');
         }
     }
 
@@ -92,8 +92,9 @@ class ProjectsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Project $project)
     {
-        //
+        $project->delete();
+        return redirect()->route('admin.projects.index')->with('success', 'Il progetto è stato eliminato');
     }
 }

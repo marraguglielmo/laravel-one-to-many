@@ -9,6 +9,12 @@ class Type extends Model
 {
     use HasFactory;
 
+    public function projects()
+    {
+        // un tipo appartiene a più progetti
+        return $this->hasMany(Project::class);
+    }
+
     protected $fillable = [
         'title',
         'slug'

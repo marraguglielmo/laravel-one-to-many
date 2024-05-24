@@ -46,6 +46,7 @@
             <thead>
                 <tr>
                     <th scope="col">Progetto</th>
+                    <th scope="col">Tipo</th>
                     <th scope="col">Data</th>
                     <th scope="col">Linguaggi</th>
                     <th scope="col">Azioni</th>
@@ -63,11 +64,12 @@
                                 <input type="text" value="{{ $project->title }}" name="title">
                             </form>
                         </td>
+                        <td>{{ $project->type->title }}</td>
                         <td>{{ Help::formatDate($project->update_at) }}</td>
                         <td>{{ $project->languages }}</td>
                         <td class="d-flex">
-                            <button type="button" onclick="submitForm({{ $project->id }})" class="btn btn-warning me-2"><i
-                                    class="fa-solid fa-pencil"></i></button>
+                            <button type="button" onclick="submitForm({{ $project->id }})"
+                                class="btn btn-warning me-2"><i class="fa-solid fa-pencil"></i></button>
 
                             {{-- delete --}}
                             <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
