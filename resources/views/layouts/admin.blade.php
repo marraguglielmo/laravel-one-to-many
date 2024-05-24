@@ -38,6 +38,10 @@
                     <a href="{{ route('admin.types.index') }}"><i
                             class="fa-solid fa-hurricane"></i><span>Types</span></a>
                 </li>
+                <li>
+                    <a href="{{ route('admin.type_projects') }}"><i class="fa-solid fa-list"></i><span>Elenco
+                            Progetti/tipo</span></a>
+                </li>
             </ul>
         </aside>
 

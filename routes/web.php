@@ -33,6 +33,9 @@ Route::middleware(['auth', 'verified'])
         Route::resource('projects', ProjectsController::class);
         Route::resource('technologies', TechnologiesController::class)->except(['create', 'show', 'edit']);
         Route::resource('types', TypesController::class)->except(['create', 'show', 'edit']);
+
+        // rotte custom
+        Route::get('project-type', [TypesController::class, 'typeProjects'])->name('type_projects');
     });
 
 // Rotte Auth
