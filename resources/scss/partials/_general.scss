@@ -22,6 +22,8 @@ header{
         box-shadow: 15px 10px 31px -11px rgba(66, 68, 90, 1);
         overflow: hidden;
         transition: width .3s ease-out;
+        text-align: center;
+        overflow: hidden;
         ul{
             padding: 0;
             list-style: none;
@@ -42,19 +44,26 @@ header{
                     text-decoration: none;
                     padding: 20px 10px;
                     font-size: 1rem;
+                    white-space: nowrap;
                     span{
                         display: none;
-                        // white-space: nowrap;
+                        opacity: 0;
+                        animation: fadeIn 0.5s ease forwards;
+                        animation-delay: .15s;
                     }
                 }
             }
         }
         &:hover{
-            transition: width .3s ease-out;
+            transition: width .4s ease-out;
             width: 220px;
+            text-align: start;
             ul{
                 li{
                     a{
+                        i{
+                            animation: slideIn .5s ease forwards; /* Applica l'animazione per spostare il testo in modo morbido durante l'hover */
+                        }
                         span{
                             display: inline-block;
                             white-space: nowrap;
@@ -64,13 +73,30 @@ header{
             }
         }
         &:not(:hover){
-            transition: width .3s ease-out;
+            transition: width .6s ease-out;
+            ul{
+                li{
+                    a{
+                        i{
+                        }
+                        span{
+                        }
+                    }
+                }
+            }
         }
     }
     .main-dash{
         width: calc(100vw - 220px);
         height: calc(100vh - 65px);
         padding: 15px 20px;
+        input{
+            outline: none;
+            box-shadow: none;
+            &:focus{
+                border-color: #064053;
+            }
+        }
     }
 
     .crud-table{
@@ -80,3 +106,30 @@ header{
         }
     }
 }
+
+
+
+// keyframe
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Il testo è completamente nascosto all'inizio dell'animazione */
+    }
+    100% {
+        opacity: 1; /* Alla fine dell'animazione, il testo è completamente visibile */
+    }
+}
+
+
+@keyframes slideIn {
+    0% {
+        transform: translateX(15px); /* Sposta il testo verso sinistra */
+        // opacity: 0; /* Il testo è completamente nascosto all'inizio dell'animazione */
+    }
+    100% {
+        transform: translateX(0); /* Il testo ritorna nella posizione originale */
+        // opacity: 1; /* Alla fine dell'animazione, il testo è completamente visibile */
+    }
+}
+
+

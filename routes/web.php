@@ -30,7 +30,7 @@ Route::middleware(['auth', 'verified'])
     ->name('admin.')
     ->group(function () {
         Route::get('/', [DashboardController::class, 'index'])->name('home');
-        Route::resource('projects', ProjectsController::class);
+        Route::resource('projects', ProjectsController::class)->except(['create', 'show', 'edit']);
         Route::resource('technologies', TechnologiesController::class)->except(['create', 'show', 'edit']);
         Route::resource('types', TypesController::class)->except(['create', 'show', 'edit']);
 

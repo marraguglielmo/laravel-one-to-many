@@ -65,10 +65,12 @@
                                 <input type="text" value="{{ $project->title }}" name="title">
                             </form>
                         </td>
-                        <td>{{ $project->type ? $project->type->title : 'Nessun tipo' }}</td>
+                        <td>{{ $project->type ? $project->type->title : 'N/A' }}</td>
                         <td>{{ Help::formatDate($project->update_at) }}</td>
-                        <td>{{ $project->languages }}</td>
-                        <td><a target="_blank" href="{{ $project->github_url }}">{{ $project->github_url }}</a></td>
+                        <td>{{ $project->languages ? $project->languages : 'N/A' }}</td>
+                        <td><a target="_blank"
+                                href="{{ $project->github_url }}">{{ $project->github_url ? $project->github_url : 'N/A' }}</a>
+                        </td>
                         <td class="d-flex">
                             <button type="button" onclick="submitForm({{ $project->id }})"
                                 class="btn btn-warning me-2"><i class="fa-solid fa-pencil"></i></button>

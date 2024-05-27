@@ -20,6 +20,7 @@ class Project extends Model
         'title',
         'type_id',
         'slug',
-        'languages'
+        'languages',
+        'github_url'
     ];
 }
