@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('type_id')->constrained()->nullOnDelete();
+            // $table->foreignId('type_id')->constrained()->nullOnDelete();
             $table->string('title', 30);
             $table->string('slug', 30)->unique();
             $table->string('languages')->nullable();
